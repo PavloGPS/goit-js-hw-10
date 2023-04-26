@@ -48,21 +48,75 @@ function onSearch(evt) {
         }
     })
 
-    console.log(fetchCountries(name));
+    console.log(fetchCountries(searchName));
   }
+
   function onFetchCountriesError() {
     Notify.failure("Oops, there is no country with that name");
   }
-  function renderCountriesList() {
-    //to do render of markup countries list
+
+  function renderCountriesList(data) {
+    countryInfoEl.innerHTML='';
+    const markup = createCountryListMarkup(data);
+    countryListEl.innerHTML = markup;
   }
-  function createCountryListMarkup() {
+
+  function createCountryListMarkup(countriesList) {
+    return countriesList.map(({name,flags})=>{
+        const country = name.official;
+        const flag = flags.svg;
+        return `<li class="country-list__item">
+        <img src="${flag}"
+        alt="flag of ${country}"
+        class="country-flag">
+        <h2 class="coutry__title">${country}</h2>
+      </li>`
+    }).join('');
     //to do markup of countries list
   }
   
-  function renderCountrieInfo() {
-    //to do render of markup countrie info
+  function renderCountrieInfo(data) {
+    countryListEl.innerHTML='';
+    const markup= createCountryInfoMarkup(data)
+    countryInfoEl.innerHTML=markup;
+    
   }
-  function createCountryInfoMarkup() {
+  function createCountryInfoMarkup(countryInfo) {
+    return countryInfo.map(({name,capital,population,flags,languages})=>{
+        const country = name.official;
+        const flagDescription = flags.alt;
+        const flag = flags.svg;
+        const allTongues = Object.values(languages).join(',');
+        
+        return `<p class="card-top__box">
+        <img src="${flag}"
+        alt="${flagDescription}"
+        class="country-flag">
+        <h2 class="coutry__title">${country}</h2>
+      </p>
+      <ul class="card-properties">
+      <li class="card-properties__item">
+        <h3 class="property__title">
+        Capital:
+          <span class="property__value">
+            ${capital}
+          </span></h3>
+      </li>
+      <li class="card-properties__item">
+        <h3 class="property__title">
+        Population:
+          <span class="property__value">
+            ${population}
+          </span></h3>
+      </li>
+      <li class="card-properties__item">
+        <h3 class="property__title">
+          Languages:
+          <span class="property__value">
+            ${allTongues}
+          </span></h3>
+      </li>
+    </ul>`
+    }).join('');
     //to do markup of countrie info
   }
