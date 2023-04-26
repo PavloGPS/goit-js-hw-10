@@ -1,7 +1,9 @@
-import './css/styles.css';
-import { fetchCountries } from './fetchCountries.js';
 import debounce from 'lodash.debounce';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
+
+import { fetchCountries } from './fetchCountries.js';
+
+import './css/styles.css';
 
 const DEBOUNCE_DELAY = 300;
 const textInputEl = document.querySelector('#search-box');
