@@ -9,7 +9,7 @@ const DEBOUNCE_DELAY = 300;
 const textInputEl = document.querySelector('#search-box');
 const countryListEl = document.querySelector('.country-list');
 const countryInfoEl = document.querySelector('.country-info');
-let name = '';
+let searchName = '';
 
 textInputEl.addEventListener('input', debounce(onSearch, DEBOUNCE_DELAY));
 
