@@ -53,6 +53,7 @@ body {
   margin: 8px;
   padding: 5px;
   display: flex;
+  align-items: center;
   min-width: 320px;
   background-color: rgba(255, 255, 255, 0.7);
   border-radius: 16px;
@@ -70,6 +71,9 @@ body {
   padding: 5px 5px;
   font-weight: 500;
   
+}
+.country-flag{
+  max-height: 25px;
 }
 .property__value {
   font-weight: 400;
