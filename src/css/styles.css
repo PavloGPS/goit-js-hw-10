@@ -67,7 +67,7 @@ body {
 }
 .coutry__subtitle,
 .property__title {
-  padding: 5px;
+  padding: 5px 5px;
   font-weight: 500;
   line-height: 16px;
 }
