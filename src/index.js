@@ -91,6 +91,7 @@ function createCountryInfoMarkup(countryInfo) {
       const flagDescription = flags.alt;
       const flag = flags.svg;
       const allTongues = Object.values(languages).join(',');
+      const populationDevidingSpace = population.toLocaleString();
 
       return `<div class="card-wraper"><p class="card-top__box">
         <img src="${flag}"
@@ -110,7 +111,7 @@ function createCountryInfoMarkup(countryInfo) {
         <h3 class="property__title">
         Population:
           <span class="property__value">
-            ${population}
+            ${populationDevidingSpace}
           </span></h3>
       </li>
       <li class="card-properties__item">
